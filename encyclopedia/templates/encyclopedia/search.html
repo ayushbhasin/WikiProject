@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ searchQ }} Results
+{% endblock %}
+
+
+{% block btn1%}
+<a href="{% url 'newEntry' %}">Create Page</a>
+{% endblock %}
+
+{% block body %}
+{% block pageHeading %}<h1>All Pages</h1>{% endblock %}
+
+<ul>
+  {% for entryTitle in entries %}
+  <li><a href="{% url 'title' entryTitle %}">{{entryTitle}}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

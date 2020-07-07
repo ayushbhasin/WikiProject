@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Editor {{entryTitle}}
+{% endblock %}
+{% block body %}
+{% block pageHeading %}<h1>Edit {{entryTitle}}</h1>{% endblock %}
+<form action="{% url 'updateEntry' entryTitle %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    {{ pgSaveEntry.saveInfo }}
+  </div>
+  <button type="submit" class="btn btn-primary" name="button">Save</button>
+</form>
+{% endblock %}

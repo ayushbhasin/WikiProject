@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+New Entry
+{% endblock %}
+{% block body %}
+{% block pageHeading %}<h1>New Entry</h1>{% endblock %}
+<form action="{% url 'newEntry' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    {{ pgNewEntry.pageTitle }}
+  </div>
+  <div class="form-group">
+    {{ pgNewEntry.pageInfo }}
+  </div>
+  <button type="submit" class="btn btn-primary" name="button">Save</button>
+</form>
+{% endblock %}
